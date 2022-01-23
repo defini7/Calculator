@@ -251,10 +251,12 @@ void cMain::OnEqualsClick(wxCommandEvent& evt)
     sExpression += sLastValue;
     sLastValue = "";
     
-    double dResult = m_Parser->Get((char*)sExpression.c_str(), bRadians);
+    std::string sResult = std::to_string(m_Parser->Get((char*)sExpression.c_str(), bRadians));
     sExpression = "";
 
-    m_Input->SetValue(_(std::to_string(dResult).c_str()));
+    m_Input->SetValue(_(sResult.c_str()));
+
+    sExpression = sResult;
 
     evt.Skip();
 
