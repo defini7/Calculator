@@ -40,10 +40,13 @@ wxEND_EVENT_TABLE()
 
 cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSize(385, 500))
 {
+    this->SetMinSize(wxSize(385, 500));
+    this->SetMaxSize(wxSize(385, 500));
+
     SetForegroundColour(wxColour(255, 255, 255));
     SetBackgroundColour(wxColour(255, 255, 255));
 
-    m_Input = new wxTextCtrl(this, ID_TEXTCTRL_INPUT, _("0"), wxPoint(8, 8), wxSize(350, 96), 0, wxDefaultValidator, _T("ID_INPUT"));
+    m_Input = new wxTextCtrl(this, ID_TEXTCTRL_INPUT, _("0"), wxPoint(8, 8), wxSize(350, 96), wxTE_READONLY, wxDefaultValidator, _T("ID_INPUT"));
 
     wxFont InputFont(28, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, _T("@Microsoft YaHei"), wxFONTENCODING_DEFAULT);
     m_Input->SetFont(InputFont);
@@ -252,7 +255,6 @@ void cMain::OnEqualsClick(wxCommandEvent& evt)
     sLastValue = "";
     
     std::string sResult = std::to_string(m_Parser->Get((char*)sExpression.c_str(), bRadians));
-    sExpression = "";
 
     m_Input->SetValue(_(sResult.c_str()));
 
