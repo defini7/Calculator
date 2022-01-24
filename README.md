@@ -1,5 +1,5 @@
 # Calculator
-Calculator. Made with C++ and wxWidgets.
+Калькулятор написанный на C++ с помощью библиотеки wxWidgets.
 
-# Current project's state
-It's the first version of project. If you noticed some problems please create a pull request.
+# Текущее состояние проекта
+Это первая версия. Если вы заметили какие-либо проблемы то прошу создать Pull request.
