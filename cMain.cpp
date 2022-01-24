@@ -46,10 +46,11 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
     SetForegroundColour(wxColour(255, 255, 255));
     SetBackgroundColour(wxColour(255, 255, 255));
 
-    m_Input = new wxTextCtrl(this, ID_TEXTCTRL_INPUT, _("0"), wxPoint(8, 8), wxSize(350, 96), wxTE_READONLY, wxDefaultValidator, _T("ID_INPUT"));
+    m_Input = new wxTextCtrl(this, ID_TEXTCTRL_INPUT, _("0"), wxPoint(8, 8), wxSize(350, 96), wxTE_READONLY | wxTE_MULTILINE, wxDefaultValidator, _T("ID_INPUT"));
 
-    wxFont InputFont(28, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, _T("@Microsoft YaHei"), wxFONTENCODING_DEFAULT);
-    m_Input->SetFont(InputFont);
+    wxFont m_Font(28, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD, false, _T("@Microsoft YaHei"));
+
+    m_Input->SetFont(m_Font);
 
     m_ChangeSign = new wxButton(this, ID_BUTTON_CHANGESIGN, _("+/-"), wxPoint(8, 400), wxSize(64, 39), 0, wxDefaultValidator, _T("ID_BUTTON_CHANGESIGN"));
     m_Zero = new wxButton(this, ID_BUTTON_ZERO, _("0"), wxPoint(80, 400), wxSize(64, 39), 0, wxDefaultValidator, _T("ID_BUTTON_ZERO"));
@@ -256,7 +257,7 @@ void cMain::OnEqualsClick(wxCommandEvent& evt)
     
     std::string sResult = std::to_string(m_Parser->Get((char*)sExpression.c_str(), bRadians));
 
-    m_Input->SetValue(_(sResult.c_str()));
+    m_Input->SetValue(sResult + "\n" + sExpression);
 
     sExpression = sResult;
 
