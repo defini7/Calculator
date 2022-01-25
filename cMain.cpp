@@ -94,7 +94,6 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "Calculator", wxPoint(30, 30), wxSiz
 cMain::~cMain()
 {
     delete m_Parser;
-
     delete m_DelAll;
     delete m_DelLast;
     delete m_Zero;
@@ -123,6 +122,15 @@ cMain::~cMain()
     delete m_Sub;
     delete m_Del;
     delete m_Input;
+    delete m_AngleMeasure;
+    delete m_Fact;
+    delete m_Sin;
+    delete m_Cos;
+    delete m_Tan;
+    delete m_ArcSin;
+    delete m_ArcCos;
+    delete m_ArcTan;
+    delete m_Pi;
 }
 
 void cMain::OnQuit(wxCommandEvent& evt)
