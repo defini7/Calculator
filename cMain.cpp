@@ -111,7 +111,6 @@ cMain::~cMain()
     delete m_Add;
     delete m_Div;
     delete m_Equals;
-    delete m_Fact;
     delete m_LeftBracket;
     delete m_Mod;
     delete m_Mul;
