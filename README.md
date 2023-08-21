@@ -1,5 +1,2 @@
 # Calculator
-Калькулятор написанный на C++ с помощью библиотеки wxWidgets.
-
-# Текущее состояние проекта
-Это первая версия. Если вы заметили какие-либо проблемы то прошу создать Pull request.
+My first ugly and not so smart calculator
